@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIAIRA FASHBEAUTY - Toko Online Fashion & Beauty</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS Internal/External -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">TIAIRA <span>FASHBEAUTY</span></a>
+            <nav class="nav-links">
+                <a href="#katalog">Katalog</a>
+                <a href="#tentang">Tentang</a>
+            </nav>
+            <div class="user-actions">
+                <div id="user-info" class="user-info hidden">
+                    <span id="user-display-name">User</span>
+                    <button id="btn-logout" class="btn-outline">Logout</button>
+                </div>
+                <button id="btn-open-auth" class="btn-primary">Login / Daftar</button>
+                <button id="btn-cart" class="btn-cart">
+                    🛒 <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Elegansi & Pesona Diri Anda</h1>
+            <p>Temukan koleksi fashion trendi dan produk kecantikan terbaik pilihan TIAIRA FASHBEAUTY.</p>
+            <a href="#katalog" class="btn-hero">Jelajahi Koleksi</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container" id="katalog">
+        <!-- Filter & Search Section -->
+        <section class="filter-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Cari pakaian, skincare, parfum...">
+            </div>
+            <div class="filter-controls">
+                <select id="category-filter">
+                    <option value="all">Semua Kategori</option>
+                    <option value="Pakaian">Pakaian</option>
+                    <option value="Tas">Tas</option>
+                    <option value="Sepatu">Sepatu</option>
+                    <option value="Aksesori">Aksesori</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Makeup">Makeup</option>
+                    <option value="Parfum">Parfum</option>
+                </select>
+                <select id="sort-filter">
+                    <option value="default">Urutkan Suasana</option>
+                    <option value="low-high">Harga: Murah ke Mahal</option>
+                    <option value="high-low">Harga: Mahal ke Murah</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Grid Produk -->
+        <section>
+            <div id="product-grid" class="product-grid">
+                <!-- Produk di-render dinamis dari script.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Section Tentang -->
+    <section id="tentang" class="about-section">
+        <div class="container">
+            <h2>Tentang TIAIRA FASHBEAUTY</h2>
+            <p>Kami menyediakan berbagai ragam produk fashion elegan dan kecantikan berkualitas tinggi untuk mendukung rasa percaya diri Anda setiap hari. Nikmati kemudahan memesan langsung via WhatsApp dengan respon cepat!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>TIAIRA FASHBEAUTY</h3>
+                <p>Pilihan Utama Fashion & Beauty Modern.</p>
+            </div>
+            <div>
+                <h4>Layanan Pelanggan</h4>
+                <p>📲 WhatsApp: +62 812-4176-1437</p>
+                <p>⏰ Jam Operasional: 08.00 - 21.00 WIB</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TIAIRA FASHBEAUTY. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Login / Register -->
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-auth-modal" class="close-btn">&times;</span>
+            <div class="auth-tabs">
+                <button id="tab-login-btn" class="tab-btn active">Login</button>
+                <button id="tab-register-btn" class="tab-btn">Daftar</button>
+            </div>
+
+            <!-- Form Login -->
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Kata Sandi</label>
+                    <input type="password" id="login-password" required placeholder="Minimal 8 karakter">
+                </div>
+                <div id="login-error" class="error-message"></div>
+                <button type="submit" class="btn-primary btn-full">Masuk</button>
+            </form>
+
+            <!-- Form Register -->
+            <form id="register-form" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="reg-name">Nama Lengkap</label>
+                    <input type="text" id="reg-name" required placeholder="Nama Anda">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Kata Sandi</label>
+                    <input type="password" id="reg-password" required placeholder="Minimal 8 karakter">
+                </div>
+                <div id="register-error" class="error-message"></div>
+                <button type="submit" class="btn-primary btn-full">Daftar Akun</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Keranjang Belanja -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content modal-lg">
+            <span id="close-cart-modal" class="close-btn">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items" class="cart-items-list">
+                <!-- Item keranjang di-render dari script.js -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total Pembayaran:</span>
+                    <strong id="cart-total-price">Rp 0</strong>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label for="shipping-address">Alamat Pengiriman (Opsional di sini, dapat diisi di WhatsApp):</label>
+                    <textarea id="shipping-address" rows="2" placeholder="Masukkan jalan, kecamatan, kota..."></textarea>
+                </div>
+                <button id="btn-checkout-wa" class="btn-wa btn-full">Pesan via WhatsApp 📱</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (Modular CDN) -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
